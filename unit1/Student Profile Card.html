@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile Card</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f0f4f8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:350px;
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+.card{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#eaf6ff;
+    display:none;
+}
+
+.card h3{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.card p{
+    margin:8px 0;
+    font-size:17px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>Student Profile</h2>
+
+<input type="text" id="name" placeholder="Enter Student Name">
+
+<input type="text" id="roll" placeholder="Enter Roll Number">
+
+<input type="number" id="marks" placeholder="Enter Marks">
+
+<button onclick="displayProfile()">Display Profile</button>
+
+<div class="card" id="profileCard">
+    <h3>Student Profile Card</h3>
+
+    <p><b>Name :</b> <span id="sname"></span></p>
+
+    <p><b>Roll No :</b> <span id="sroll"></span></p>
+
+    <p><b>Marks :</b> <span id="smarks"></span></p>
+
+    <p><b>Grade :</b> <span id="sgrade"></span></p>
+</div>
+
+</div>
+
+<script>
+
+function displayProfile(){
+
+    let name=document.getElementById("name").value;
+    let roll=document.getElementById("roll").value;
+    let ave=parseFloat(document.getElementById("marks").value);
+
+    let grade;
+
+    if (ave >= 80) {
+        grade = 'A';
+    }
+    else if (ave >= 70) {
+        grade = 'B';
+    }
+    else if (ave >= 60) {
+        grade = 'C';
+    }
+    else {
+        grade = 'F';
+    }
+
+    document.getElementById("sname").textContent=name;
+    document.getElementById("sroll").textContent=roll;
+    document.getElementById("smarks").textContent=ave;
+    document.getElementById("sgrade").textContent=grade;
+
+    document.getElementById("profileCard").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
